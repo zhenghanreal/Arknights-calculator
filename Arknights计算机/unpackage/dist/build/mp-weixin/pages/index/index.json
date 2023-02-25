@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "明日方舟公开计算器",
+  "usingComponents": {
+    "result": "/pages/Result/index"
+  }
+}
