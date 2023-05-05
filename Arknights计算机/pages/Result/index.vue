@@ -16,13 +16,13 @@
 </template>
 
 <script>
-	import data1 from '../../static/data/data1.json'
-	import data2 from '../../static/data/data2.json'
+	// import data1 from '../../static/data/data1.json'
+	// import data2 from '../../static/data/data2.json'
 	export default{
 		data(){
 			return{
-				fiveS:data1,
-				SixS:data2,
+				fiveS:'',
+				SixS:'',
 			}
 		},
 		props:{
@@ -30,21 +30,21 @@
 				type:Array,
 			}
 		},
-		// created() {
-		// 	//发送请求
-		// 	uni.request({
-		// 	    url:'../../static/data/data1.json', 
-		// 	    success: (res) => {
-		// 	        this.fiveS = res.data
-		// 	    }
-		// 	});
-		// 	uni.request({
-		// 	    url:'../../static/data/data2.json', 
-		// 	    success: (res) => {
-		// 	        this.SixS = res.data
-		// 	    }
-		// 	});
-		// },
+		created() {
+			//发送请求
+			uni.request({
+			    url:'../../static/data/data1.json', 
+			    success: (res) => {
+			        this.fiveS = res.data
+			    }
+			});
+			uni.request({
+			    url:'../../static/data/data2.json', 
+			    success: (res) => {
+			        this.SixS = res.data
+			    }
+			});
+		},
 		computed:{
 			//过滤数据
 			result(){

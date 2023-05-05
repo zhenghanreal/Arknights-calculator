@@ -1,7 +1,19 @@
 <template>
 	<view class="index">
 		<view class="tag">
-			<view class="title">Tag列表</view>
+			<view class="top">
+				<text class="title">Tag列表</text>
+				<button class="tip" @click="open">提示</button>
+				<uni-popup ref="popup" type="center" background-color="#222a35">
+					<view class="tip_box">
+						<text>招募小提示\n
+						1.出现“<text class="red">资深干员</text>”或“<text class="red">高级资深干员</text>”时间拉满9小时必定出5星和6星\n
+						2.出现“<text class="red">支援机械</text>”出一星机器人要把时间调整为3小时50分\n
+						3.部分tag必出4星及以上的干员刷出了请留意\n
+						<text class="red">特种</text>，<text class="red">削弱</text>，<text class="red">位移</text>，<text class="red">爆发</text>，<text class="red">控场</text>，<text class="red">召唤</text>，<text class="red">支援</text>，<text class="red">快速复活</text></text>
+					</view>
+				</uni-popup>
+			</view>
 			<view class="divider"></view>
 			<view class="occupation"><!-- 职位 -->
 				<ul>
@@ -120,6 +132,9 @@
 					})
 				}
 			},
+			open(){
+			    this.$refs.popup.open()
+			}
 		}
 	}
 </script>
@@ -127,7 +142,7 @@
 <style lang="scss" scoped>
 	.index{
 		width: 100%;
-		height: 94vh;
+		height: 100vh;
 		background-color: #222a35;
 		
 		.tag{
@@ -138,14 +153,46 @@
 				background: #E0E3DA;
 				width: 100%;
 				height: 5rpx;
+				margin: 10rpx 0;
 			}
 			
-			.title{
-				font-size: 30rpx;
-				margin-left: 30rpx;
-				height: 60rpx;
-				line-height: 60rpx;
-				color: white;
+			.top{
+				padding: 10rpx 0;
+				position: relative;
+				
+				.title{
+					padding-top: 10rpx;
+					font-size: 35rpx;
+					margin-left: 30rpx;
+					height: 70rpx;
+					line-height: 60rpx;
+					color: white;
+				}
+				
+				.tip{
+					position: absolute;
+					top:20rpx;
+					right: 30rpx;
+					color: black;
+					background-color: #eeeeee;
+					font-size: 26rpx;
+					width: auto;
+					height: 50rpx;
+					line-height: 50rpx;
+				}
+				
+				.tip_box{
+					font-size: 30rpx;
+					width: 700rpx;
+					margin: auto;
+					padding: 15rpx;
+					line-height: 50rpx;
+					color: #eeeeee;
+					
+					.red{
+						color: #ec0003;
+					}
+				}
 			}
 			
 			.occupation,
@@ -179,9 +226,10 @@
 			}
 			
 			.reset{
+				box-sizing: border-box;
 				position: relative;
 				width: 100%;
-				height: 60rpx;
+				height: 75rpx;
 				padding: 15rpx;
 				
 				.reset_btn{
